@@ -1,0 +1,27 @@
+{
+  "title": "Home",
+
+  "tagline": "2D+3D game making for indies. Free,&nbsp;<b>finally</b>.",
+
+  "news": {
+    "couldNotFetch": "Could not fetch latest news."
+  },
+
+  "chatrooms": {
+    "title": "Chatrooms",
+
+    "en": "English",
+    "fr": "French"
+  },
+
+  "links": {
+    "title": "Links",
+
+    "documentation": "Documentation",
+    "forums": "Community Forums",
+    "patreon": "Patreon",
+    "openSource": "Open Source",
+    "freeAssets": "Free assets",
+    "teamSpeak": "TeamSpeak server"
+  }
+}

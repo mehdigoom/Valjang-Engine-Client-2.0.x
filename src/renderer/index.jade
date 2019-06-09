@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title ValjangEngine
+    link(rel="stylesheet",href="index.css")
+
+    template.chat-tab
+      .channel
+        .header
+          .info
+            .name
+            .details
+          .topic.disabled
+        .log
+        .input
+          textarea
+      .resize-handle.right
+      .sidebar
+        .users-tree-view
+  body
+    .sidebar
+      .me
+        .picture
+          img(src="images/ValjangEngine-256.png",width="48",height="48")
+        .info
+          .name ValjangEngine
+          .presence
+            select
+              option(value="online")= t("sidebar:presence.online")
+              option(value="away")= t("sidebar:presence.away")
+              option(value="offline",selected)= t("sidebar:presence.offline")
+            button.show-chat-status= t("sidebar:chat.showIrcStatus")
+      .servers-buttons.flat-button-strip
+        button.add-server(title=t("sidebar:servers.add"), disabled,data-hotkey="control+N")
+        button.edit-server(title=t("sidebar:servers.edit"),disabled)
+        button.remove-server(title=t("sidebar:servers.remove"),disabled)
+
+      .servers-tree-view
+      .local-server
+        .status= t("server:status.stopped")
+        button.start-stop= t("server:buttons.start")
+        button.settings= t("server:buttons.settings")
+    .resize-handle.left
+
+    .main
+      .tabs-bar
+        ol.tab-strip
+          li(data-name="home").active.pinned
+            img.icon(src="images/tabs/home.svg")
+      .panes
+        .home(data-name="home")
+          include home/index
+        .server-settings(hidden,data-name="server-settings",data-persist="true")
+          include serverSettings/index
+
+    .loading
+      .splash(hidden)
+        img(src="images/ValjangEngine-256.png")
+        .status=t("startup:startingUp")
+        .progress(hidden)
+          progress
+      .version
+
+    .waiting-game-install.dialog(hidden)
+      label= t("welcome:askGameInstall.waiting")
+
+    script.
+      // Workaround some error with module generation. See https://github.com/Microsoft/TypeScript/issues/14351
+      const exports = {};
+
+      window.addEventListener("keyup", (event) => {
+        if (event.keyCode === 123 /* F12 */) electron.remote.getCurrentWindow().webContents.openDevTools();
+      });
+    script(src="index.js")

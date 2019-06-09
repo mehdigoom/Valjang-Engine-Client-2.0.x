@@ -1,0 +1,37 @@
+{
+  "activeLanguage": "Русский",
+  
+  "actions": {
+    "cancel": "Отменить",
+    "clear": "Очистить",
+    "close": "Закрыть",
+    "skip": "Пропустить",
+    "save": "Сохранить",
+    "download": "Скачать",
+    "install": "Установить",
+    "uninstall": "Удалить",
+    "open": "Открыть",
+    "refresh": "Обновить",
+    "update": "Обновить",
+    "show": "Показать",
+    "hide": "Скрыть"
+  },
+
+  "states": {
+    "loading": "Загрузка..."
+  },
+
+  "server": {
+    "hostname": "Имя Хоста",
+    "port": "Порт",
+    "label": "Название",
+
+    "connecting": "Подключение к ${host}...",
+    "tryAgain": "Попробовать снова",
+    "errors": {
+      "ValjangEngineJSON": "Не получилось загрузить ${host}/ValjangEngine.json.",
+      "notValjangEngine": "Похоже, на сервере ${host} не запущен ValjangEngine.",
+      "incompatibleVersion": "На сервере ${host} работает несовместимая версия ValjangEngine (запущено приложение с API версии ${serverVersion}, необходима ${appVersion})."
+    }
+  }
+}

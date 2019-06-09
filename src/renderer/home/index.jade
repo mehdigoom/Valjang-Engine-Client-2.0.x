@@ -1,0 +1,28 @@
+.main
+  .logo
+    h1 ValjangEngine
+    .tagline!= t("home:tagline")
+  .news= t("common:states.loading")
+.sidebar
+  .chatrooms
+    header= t("home:chatrooms.title")
+    ul
+      li
+        a(href="#",data-channel="#ValjangEngine-html5")= t("home:chatrooms.en")
+      li
+        a(href="#",data-channel="#ValjangEngine-html5-fr")= t("home:chatrooms.fr")
+  .links
+    header= t("home:links.title")
+    ul
+      li
+        a(href="http://docs.ValjangEngine-html5.com/")= t("home:links.documentation")
+      li
+        a(href="http://itch.io/engine/ValjangEngine/community")= t("home:links.forums")
+      li
+        a(href="https://patreon.com/SparklinLabs")= t("home:links.patreon")
+      li
+        a(href="https://github.com/ValjangEngine")= t("home:links.openSource")
+      li
+        a(href="https://github.com/sparklinlabs/ValjangEngine-asset-packs")= t("home:links.freeAssets")
+      li
+        a(href="ts3server://ts.ValjangEngine-html5.com")= t("home:links.teamSpeak")

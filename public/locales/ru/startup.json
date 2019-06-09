@@ -1,0 +1,25 @@
+{
+  "startingUp": "Запуск ValjangEngine...",
+  "failedToStart": "Не удалось запустить приложение",
+  "startAnyway": "Запустить в любом случае",
+
+  "errors": {
+    "missingEnvironmentVariables": "Не удалось найти требуемые переменные окружения: ${envVars}.",
+    "couldNotCreateUserDataFolder": "Не удалось создать папку пользовательских данных в ${userDataPath}. Причина: ${reason}.",
+    "couldNotLoadSettings": "Не удалось загрузить настройки из ${settingsPath}. Причина: ${reason}."
+  },
+
+  "updateAvailable": {
+    "app": "Доступен ValjangEngine ${latest} (вы запустили ${current}).",
+    "core": "Доступен ValjangEngine Core ${latest} (вы запустили ${current}).",
+    "systemsAndPlugins": "Доступны обновления для следующих элементов: ${systemsAndPlugins}."
+  },
+
+  "status": {
+    "installingCore": "Установка последней версии ValjangEngine Core...",
+    "installingCoreSucceed": "ValjangEngine Core успешно установлено.",
+    "installingCoreFailed": "Не удалось установить ValjangEngine Core. ${error}",
+    "installingGame": "Установка последней версии системы Game...",
+    "installingGameFailed": "Не удалось установить систему ValjangEngine Game. ${error}"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "startingUp": "ValjangEngine wird gestartet...",
+  "failedToStart": "App konnte nicht gestartet werden",
+  "startAnyway": "Trotzdem starten",
+
+  "errors": {
+    "missingEnvironmentVariables": "Benötigte Umgebungsvariablen konnten nicht gefunden werden: ${envVars}.",
+    "couldNotCreateUserDataFolder": "Benutzerdaten Ordner konnte in ${userDataPath} nicht angelegt werden. Grund: ${reason}.",
+    "couldNotLoadSettings": "Einstellungen aus ${settingsPath} konnten nicht geladen werden. Grund: ${reason}."
+  },
+
+  "updateAvailable": {
+    "app": "ValjangEngine ${latest} ist verfügbar (Sie haben noch ${current}).",
+    "core": "ValjangEngine Core ${latest} ist verfügbar (Sie haben noch ${current}).",
+    "systemsAndPlugins": "Für die folgenden Komponnenten ist ein Update verfügbar: ${systemsAndPlugins}."
+  },
+
+  "status": {
+    "installingCore": "Aktuelle ValjangEngine Core wird installiert...",
+    "installingCoreSucceed": "ValjangEngine Core wurde erfolgreich installiert.",
+    "installingCoreFailed": "Die Installation von ValjangEngine Core ist fehlgeschlagen. ${error}",
+    "installingGame": "Aktuelles ValjangEngine Game System wird installiert...",
+    "installingGameFailed": "Die Installation von ValjangEngine Game System ist fehlgeschlagen. ${error}"
+  }
+}

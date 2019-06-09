@@ -1,0 +1,42 @@
+{
+  "activeLanguage": "English",
+  
+  "none": "(None)",
+  
+  "actions": {
+    "cancel": "Cancel",
+    "clear": "Clear",
+    "close": "Close",
+    "skip": "Skip",
+    "save": "Save",
+    "download": "Download",
+    "install": "Install",
+    "uninstall": "Uninstall",
+    "open": "Open",
+    "refresh": "Refresh",
+    "update": "Update",
+    "show": "Show",
+    "hide": "Hide"
+  },
+
+  "states": {
+    "loading": "Loading..."
+  },
+
+  "server": {
+    "hostname": "Hostname",
+    "port": "Port",
+    "label": "Label",
+    "httpUsername": "HTTP Username",
+    "httpPassword": "HTTP Password",
+
+    "connecting": "Connecting to ${host}...",
+    "tryAgain": "Try again",
+    "errors": {
+      "ValjangEngineJSON": "Could not download ${host}/ValjangEngine.json.",
+      "notValjangEngine": "The server at ${host} doesn't seem to be running ValjangEngine.",
+      "incompatibleVersion": "The server at ${host} runs an incompatible version of ValjangEngine (got app API version ${serverVersion}, expected ${appVersion})."
+    }
+  }
+}
+

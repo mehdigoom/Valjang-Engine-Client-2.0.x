@@ -1,0 +1,25 @@
+{
+  "startingUp": "Starting up ValjangEngine...",
+  "failedToStart": "Could not start app",
+  "startAnyway": "Start anyway",
+
+  "errors": {
+    "couldNotGetDataPath": "Could not get data path: ${details}",
+    "couldNotCreateUserDataFolder": "Could not create user data folder at ${userDataPath}. Reason: ${reason}.",
+    "couldNotLoadSettings": "Could not load settings from ${settingsPath}. Reason: ${reason}."
+  },
+
+  "updateAvailable": {
+    "app": "ValjangEngine ${latest} is available (you're running ${current}).",
+    "core": "ValjangEngine Core ${latest} is available (you're running ${current}).",
+    "systemsAndPlugins": "The following items have updates available: ${systemsAndPlugins}."
+  },
+
+  "status": {
+    "installingCore": "Installing latest ValjangEngine Core...",
+    "installingCoreSucceed": "ValjangEngine Core was successfully installed.",
+    "installingCoreFailed": "ValjangEngine Core installation has failed. ${error}",
+    "installingGame": "Installing latest Game system...",
+    "installingGameFailed": "ValjangEngine Game system installation has failed. ${error}"
+  }
+}

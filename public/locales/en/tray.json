@@ -1,0 +1,9 @@
+{
+  "dashboard": "Dashboard",
+  "exit": "Exit",
+
+  "stillRunning": {
+    "title": "Running in the background...",
+    "content": "Right-click the tray icon to exit ValjangEngine."
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "title": "Welcome to ValjangEngine!",
+  "prompt": "ValjangEngine lets you collaborate with people around the world.",
+
+  "nickname": "Nickname",
+  "connectToChat": "Connect to community chat",
+
+  "getStarted": "Get started!",
+
+  "askGameInstall": {
+    "title": "Getting started",
+    "prompt": "ValjangEngine uses systems to let you create various types of projects. The most widely used is the \"ValjangEngine Game\" system, which allows you to create HTML5 2D+3D game projects. Do you want to install this system now?",
+    "waiting": "The \"ValjangEngine Game\" system is being installed. It will take a couple minutes."
+  },
+
+  "serverInformation": {
+    "title": "Local server management",
+    "info": "You can manage your own local server from the bottom-left corner. By default, it starts automatically when you launch the app.",
+    "gotIt": "Got it!"
+  },
+
+  "sidebarInformation": {
+    "title": "Server list",
+    "info": "The sidebar on the left lists your favorite servers. Double-click on \"My Server\" to access your local server's hub and create your first project!"
+  }
+}

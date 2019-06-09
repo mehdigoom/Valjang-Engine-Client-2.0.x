@@ -1,0 +1,25 @@
+{
+  "startingUp": "ValjangEngine in avviamento...",
+  "failedToStart": "Non è stato possibile avviare l'app",
+  "startAnyway": "Lancia comunque",
+
+  "errors": {
+    "missingEnvironmentVariables": "non è stato possibile trovare le variabili d'ambiente: ${envVars}.",
+    "couldNotCreateUserDataFolder": "Non è stato possibile creare la cartella dati utente ${userDataPath}. Motivo: ${reason}.",
+    "couldNotLoadSettings": "Non è stato possibile caricare le impostazioni da ${settingsPath}. Motivo: ${reason}."
+  },
+
+  "updateAvailable": {
+    "app": "E' disponibile ValjangEngine ${latest} (la tua versione è ${current}).",
+    "core": "E' disponibile ValjangEngine Core ${latest} (la tua versione è ${current}).",
+    "systemsAndPlugins": "Sono disponibili aggiornamenti per i seguenti elementi: ${systemsAndPlugins}."
+  },
+
+  "status": {
+    "installingCore": "Installazione della più recente versione di ValjangEngine Core...",
+    "installingCoreSucceed": "ValjangEngine Core installato correttamente.",
+    "installingCoreFailed": "Installazione di ValjangEngine Core fallita. ${error}",
+    "installingGame": "Installazione del più recente Game system...",
+    "installingGameFailed": "Installazione di Game system fallita. ${error}"
+  }
+}

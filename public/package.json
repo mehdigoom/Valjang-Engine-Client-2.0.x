@@ -1,0 +1,9 @@
+{
+  "name": "ValjangEngine-app",
+  "version": "0.0.0-dev",
+  "main": "main.js",
+  "ValjangEngine": {
+    "electron": "4.0.7",
+    "appApiVersion": 5
+  }
+}
