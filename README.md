@@ -32,7 +32,7 @@ Enabling development mode will also add the None language to the language select
 
 To enable development mode, open a Valjang-Engine project, press F12 to open the dev tools and type the following in the console:
 
-`localStorage.setItem("Valjang-Engine-dev-mode", "true");`
+`localStorage.setItem("ValjangEngine-dev-mode", "true");`
 
 Reload for the change to take effect.
 
