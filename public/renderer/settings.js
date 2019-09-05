@@ -2,27 +2,33 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const i18n = require("../shared/i18n");
+
 function setPaths(newCorePath, newUserDataPath) {
     exports.corePath = newCorePath;
     exports.userDataPath = newUserDataPath;
 }
 exports.setPaths = setPaths;
+
 function setNickname(newNickname) {
     exports.nickname = newNickname;
 }
 exports.setNickname = setNickname;
+
 function setPresence(newPresence) {
     exports.presence = newPresence;
 }
 exports.setPresence = setPresence;
+
 function setSavedChatrooms(newSavedChatrooms) {
     exports.savedChatrooms = newSavedChatrooms;
 }
 exports.setSavedChatrooms = setSavedChatrooms;
+
 function setAutoStartServer(enabled) {
     exports.autoStartServer = enabled;
 }
 exports.setAutoStartServer = setAutoStartServer;
+
 function load(callback) {
     const settingsPath = `${exports.userDataPath}/settings.json`;
     console.log(`Loading settings from ${settingsPath}.`);
@@ -35,7 +41,7 @@ function load(callback) {
         exports.recentProjects = [];
         if (dataJSON == null) {
             // Setup defaults
-            const myServerEntry = { id: "0", hostname: "127.0.0.1", port: "4237", label: i18n.t("server:myServer"), httpUsername: "", httpPassword: "" };
+            const myServerEntry = { id: "0", hostname: "15.188.48.149", port: "4201", label: i18n.t("Server Public"), httpUsername: "", httpPassword: "" };
             exports.favoriteServers = [myServerEntry];
             exports.favoriteServersById[myServerEntry.id] = myServerEntry;
             exports.recentProjects = [];
@@ -65,12 +71,14 @@ function load(callback) {
 }
 exports.load = load;
 let scheduleSaveTimeoutId;
+
 function scheduleSave() {
     if (scheduleSaveTimeoutId != null)
         return;
     scheduleSaveTimeoutId = setTimeout(applyScheduledSave, 30 * 1000);
 }
 exports.scheduleSave = scheduleSave;
+
 function applyScheduledSave() {
     if (scheduleSaveTimeoutId == null)
         return;
