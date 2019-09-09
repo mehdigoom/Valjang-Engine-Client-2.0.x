@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fetch_1 = require("../../shared/fetch");
-const i18n = require("../.i18n");
+const i18n = require("i18n");
 
 function start() {
     let languageCode = i18n.languageCode;

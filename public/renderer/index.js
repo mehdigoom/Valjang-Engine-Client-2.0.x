@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const electron = require("electron");
 const dialogs = require("simple-dialogs");
 const async = require("async");
-const i18n = require(".i18n");
+const i18n = require("i18n");
 const settings = require("./settings");
 const splashScreen = require("./splashScreen");
 const updateManager = require("./updateManager");

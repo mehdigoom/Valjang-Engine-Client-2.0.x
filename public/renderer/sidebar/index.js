@@ -4,7 +4,7 @@ require("./me");
 const ResizeHandle = require("resize-handle");
 const TreeView = require("dnd-tree-view");
 const simple_dialogs_1 = require("simple-dialogs");
-const i18n = require("../.i18n");
+const i18n = require("i18n");
 const AddOrEditServerDialog_1 = require("./AddOrEditServerDialog");
 const settings = require("../settings");
 const openServer_1 = require("../tabs/openServer");

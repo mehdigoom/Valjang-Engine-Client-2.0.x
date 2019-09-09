@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const i18n = require("../.i18n");
+const i18n = require("i18n");
 const index_1 = require("./index");
 
 function openServerSettings() {

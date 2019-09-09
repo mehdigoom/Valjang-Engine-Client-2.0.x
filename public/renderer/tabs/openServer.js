@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const electron = require("electron");
 const fetch_1 = require("../../shared/fetch");
-const i18n = require("../.i18n");
+const i18n = require("i18n");
 const index_1 = require("./index");
 const { ValjangEngine: { appApiVersion: appApiVersion } } = JSON.parse(fs.readFileSync(`${__dirname}/../../package.json`, { encoding: "utf8" }));
 

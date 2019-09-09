@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const simple_dialogs_1 = require("simple-dialogs");
-const i18n = require("../.i18n");;
+const i18n = require("i18n");;
 class AddOrEditServerDialog extends simple_dialogs_1.BaseDialog {
     constructor(headerLabel, options, callback) {
         super(callback);
