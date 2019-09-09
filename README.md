@@ -4,7 +4,7 @@
 [![Patreon](https://img.shields.io/badge/patreon-support%20us-brightgreen.svg)](https://www.patreon.com/valjang)
 
 [Website](http://Valjang.fr/) —
-
+--
 Building the desktop app
 
 The desktop app is powered by Electron.
@@ -19,7 +19,7 @@ In a terminal, run the following commands:
 
 Once it's done, you can start the app by running:
 
-# Install Electron the first time (and then everytime you want to update it)
+# Install Electron the first time (and then everytime you want to update it).
 `npm install -g electron`
 
 `npm run start`
