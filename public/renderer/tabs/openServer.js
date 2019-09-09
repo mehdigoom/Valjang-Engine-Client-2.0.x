@@ -3,9 +3,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const electron = require("electron");
 const fetch_1 = require("../../shared/fetch");
-const i18n = require("../../shared/i18n");
+const i18n = require("../.i18n");
 const index_1 = require("./index");
 const { ValjangEngine: { appApiVersion: appApiVersion } } = JSON.parse(fs.readFileSync(`${__dirname}/../../package.json`, { encoding: "utf8" }));
+
 function openServer(serverEntry) {
     index_1.clearActiveTab();
     let tabElt = index_1.tabStrip.tabsRoot.querySelector(`li[data-server-id="${serverEntry.id}"]`);
@@ -20,6 +21,7 @@ function openServer(serverEntry) {
     paneElt.hidden = false;
 }
 exports.default = openServer;
+
 function makeServerTab(serverEntry) {
     const tabElt = document.createElement("li");
     tabElt.dataset["serverId"] = serverEntry.id;
@@ -43,6 +45,7 @@ function makeServerTab(serverEntry) {
     tabElt.appendChild(closeButton);
     return tabElt;
 }
+
 function makeServerPane(serverEntry) {
     const paneElt = document.createElement("div");
     paneElt.dataset["serverId"] = serverEntry.id;
@@ -54,6 +57,7 @@ function makeServerPane(serverEntry) {
     const retryButton = document.createElement("button");
     retryButton.textContent = i18n.t("common:server.tryAgain");
     connectingElt.appendChild(retryButton);
+
     function onRetryButtonClick(event) {
         event.preventDefault();
         tryConnecting();
@@ -62,6 +66,7 @@ function makeServerPane(serverEntry) {
     // Automatically add insecure protocol if none is already provided in the hostname
     const protocol = serverEntry.hostname.startsWith("http") ? "" : "http://";
     const host = protocol + serverEntry.hostname + (serverEntry.port != null ? `:${serverEntry.port}` : "");
+
     function tryConnecting() {
         statusElt.textContent = i18n.t("common:server.connecting", { host });
         retryButton.hidden = true;
@@ -71,6 +76,7 @@ function makeServerPane(serverEntry) {
         }
         fetch_1.default(`${host}/ValjangEngine.json`, { type: "json", httpAuth }, onFetchJSON);
     }
+
     function onFetchJSON(err, serverInfo) {
         if (err != null) {
             statusElt.textContent = i18n.t("common:server.errors.ValjangEngineJSON", { host });
@@ -89,14 +95,17 @@ function makeServerPane(serverEntry) {
         }
         const webviewElt = document.createElement("webview");
         webviewElt.preload = `${__dirname}/../../SupApp/index.js`;
+
         function clearEventListeners() {
             webviewElt.removeEventListener("did-finish-load", onLoad);
             webviewElt.removeEventListener("did-fail-load", onError);
         }
+
         function onLoad() {
             clearEventListeners();
             paneElt.removeChild(connectingElt);
         }
+
         function onError() {
             clearEventListeners();
             paneElt.removeChild(webviewElt);
@@ -107,6 +116,7 @@ function makeServerPane(serverEntry) {
         webviewElt.src = host;
         paneElt.appendChild(webviewElt);
         webviewElt.focus();
+
         function setupHttpAuth() {
             // This won't return a valid value until the <webview> has been initialized
             // so if it fails, we wait a bit and try again

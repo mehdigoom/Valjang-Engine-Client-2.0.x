@@ -2,17 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const chat = require("../chat");
 const dialogs = require("simple-dialogs");
-const i18n = require("../../shared/i18n");
+const i18n = require("../.i18n");
 const settings = require("../settings");
 const container = document.querySelector("body > .sidebar .me");
 const nameElt = container.querySelector(".name");
 const presenceElt = container.querySelector(".presence select");
 const showIrcStatusButton = container.querySelector(".show-chat-status");
+
 function start() {
     nameElt.textContent = settings.nickname;
     presenceElt.value = settings.presence;
 }
 exports.start = start;
+
 function updatePresenceFromSettings() {
     presenceElt.value = settings.presence;
 }

@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const forkServerProcess_1 = require("./forkServerProcess");
 const settings = require("./settings");
-const i18n = require("../shared/i18n");
+const i18n = require(".i18n");
 const openServerSettings_1 = require("./tabs/openServerSettings");
 const serverSettings = require("./serverSettings");
 const log_1 = require("./serverSettings/log");
@@ -11,6 +11,7 @@ const localServerElt = document.querySelector(".local-server");
 const statusElt = localServerElt.querySelector(".status");
 const startStopServerButton = localServerElt.querySelector(".start-stop");
 const settingsButton = localServerElt.querySelector(".settings");
+
 function start() {
     startStopServerButton.addEventListener("click", startStopServer);
     settingsButton.addEventListener("click", openServerSettings_1.default);
@@ -18,12 +19,14 @@ function start() {
         startServer();
 }
 exports.start = start;
+
 function startStopServer() {
     if (serverProcess == null)
         startServer();
     else
         stopServer();
 }
+
 function startServer() {
     if (serverProcess != null)
         return;
@@ -38,6 +41,7 @@ function startServer() {
     serverProcess.stderr.on("data", (data) => { log_1.append(String(data)); });
 }
 let shutdownCallback;
+
 function shutdown(callback) {
     if (serverProcess == null) {
         callback();
@@ -47,11 +51,13 @@ function shutdown(callback) {
     stopServer();
 }
 exports.shutdown = shutdown;
+
 function setServerUpdating(updating) {
     startStopServerButton.disabled = updating;
     statusElt.textContent = i18n.t(`server:status.${updating ? "updating" : "stopped"}`);
 }
 exports.setServerUpdating = setServerUpdating;
+
 function stopServer() {
     if (serverProcess == null)
         return;
@@ -61,6 +67,7 @@ function stopServer() {
     serverProcess.send("stop");
 }
 exports.stopServer = stopServer;
+
 function onServerExit() {
     serverProcess = null;
     statusElt.textContent = i18n.t("server:status.stopped");
@@ -73,6 +80,7 @@ function onServerExit() {
         shutdownCallback = null;
     }
 }
+
 function onServerMessage(msg) {
     if (typeof msg !== "object")
         return;

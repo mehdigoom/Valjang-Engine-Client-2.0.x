@@ -1,9 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const fetch_1 = require("../../shared/fetch");
-const i18n = require("../../shared/i18n");
+const i18n = require("../.i18n");
+
 function start() {
     let languageCode = i18n.languageCode;
+
     function fetchNews(callback) {
         fetch_1.default(`http://serveur1.chez.com/new.html`, { type: "text" }, callback);
     }
@@ -25,6 +27,7 @@ function start() {
     });
 }
 exports.start = start;
+
 function setupNews(html) {
     const newsElt = document.querySelector(".home .news");
     if (html == null)

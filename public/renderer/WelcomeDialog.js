@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const dialogs = require("simple-dialogs");
-const i18n = require("../shared/i18n");
+const i18n = require(".i18n");
 const chat_1 = require("./chat");
 class WelcomeDialog extends dialogs.BaseDialog {
     constructor(callback) {

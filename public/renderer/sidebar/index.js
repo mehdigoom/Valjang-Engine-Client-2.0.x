@@ -4,7 +4,7 @@ require("./me");
 const ResizeHandle = require("resize-handle");
 const TreeView = require("dnd-tree-view");
 const simple_dialogs_1 = require("simple-dialogs");
-const i18n = require("../../shared/i18n");
+const i18n = require("../.i18n");
 const AddOrEditServerDialog_1 = require("./AddOrEditServerDialog");
 const settings = require("../settings");
 const openServer_1 = require("../tabs/openServer");
@@ -13,6 +13,7 @@ const addServerBtn = document.querySelector(".add-server");
 const editServerBtn = document.querySelector(".edit-server");
 const removeServerBtn = document.querySelector(".remove-server");
 const serversTreeView = new TreeView(document.querySelector(".servers-tree-view"), { dropCallback: onServerDrop });
+
 function start() {
     for (const serverEntry of settings.favoriteServers)
         addServer(serverEntry);
@@ -24,6 +25,7 @@ editServerBtn.addEventListener("click", onEditServerClick);
 removeServerBtn.addEventListener("click", onRemoveServerClick);
 serversTreeView.on("selectionChange", updateSelectedServer);
 serversTreeView.on("activate", onServerActivate);
+
 function onAddServerClick(event) {
     const addOrEditOptions = {
         validationLabel: "Add",
@@ -46,6 +48,7 @@ function onAddServerClick(event) {
         settings.scheduleSave();
     });
 }
+
 function onEditServerClick(event) {
     const serverId = parseInt(serversTreeView.selectedNodes[0].dataset["serverId"], 10);
     const serverEntry = settings.favoriteServersById[serverId];
@@ -72,6 +75,7 @@ function onEditServerClick(event) {
         settings.scheduleSave();
     });
 }
+
 function onRemoveServerClick(event) {
     new simple_dialogs_1.ConfirmDialog("Are you sure you want to remove the server?", { validationLabel: "Remove" }, (confirm) => {
         if (!confirm)
@@ -85,6 +89,7 @@ function onRemoveServerClick(event) {
         settings.scheduleSave();
     });
 }
+
 function addServer(serverEntry) {
     const serverElt = document.createElement("li");
     serverElt.dataset["serverId"] = serverEntry.id;
@@ -99,20 +104,22 @@ function addServer(serverEntry) {
     hostElt.textContent = host;
     serverElt.appendChild(hostElt);
 }
+
 function onServerDrop(event, dropLocation, orderedNodes) {
     // TODO
     return false;
 }
+
 function updateSelectedServer() {
     if (serversTreeView.selectedNodes.length === 0) {
         editServerBtn.disabled = true;
         removeServerBtn.disabled = true;
-    }
-    else {
+    } else {
         editServerBtn.disabled = false;
         removeServerBtn.disabled = false;
     }
 }
+
 function onServerActivate() {
     if (serversTreeView.selectedNodes.length === 0)
         return;

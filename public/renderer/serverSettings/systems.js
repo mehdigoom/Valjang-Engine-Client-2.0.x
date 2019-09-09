@@ -6,7 +6,7 @@ const forkServerProcess_1 = require("../forkServerProcess");
 const TreeView = require("dnd-tree-view");
 const dialogs = require("simple-dialogs");
 const html_1 = require("../html");
-const i18n = require("../../shared/i18n");
+const i18n = require("../.i18n");
 const localServer = require("../localServer");
 const settingsElt = document.querySelector(".server-settings");
 const systemsPaneElt = settingsElt.querySelector(".systems");
@@ -29,19 +29,19 @@ const installedElt = detailsElt.querySelector("tr.installed td");
 const latestElt = detailsElt.querySelector("tr.latest td");
 let registry;
 let registryServerProcess;
-const serverProcessById = {};
-;
+const serverProcessById = {};;
 let getRegistryCallbacks = [];
+
 function getRegistry(callback) {
     if (registry != null) {
         callback(registry);
-    }
-    else {
+    } else {
         getRegistryCallbacks.push(callback);
         refreshRegistry();
     }
 }
 exports.getRegistry = getRegistry;
+
 function refreshRegistry() {
     if (registryServerProcess != null)
         return;
@@ -56,6 +56,7 @@ function refreshRegistry() {
     });
 }
 exports.refreshRegistry = refreshRegistry;
+
 function onRegistryReceived(event) {
     if (event.type !== "registry") {
         // TODO: Whoops?! Handle error?
@@ -84,14 +85,14 @@ function onRegistryReceived(event) {
                 }
             }
         }
-    }
-    else {
+    } else {
         registry = null;
     }
     for (const getRegistryCallback of getRegistryCallbacks)
         getRegistryCallback(registry);
     getRegistryCallbacks.length = 0;
 }
+
 function action(command, item, callback) {
     getRegistry((registry) => {
         if (registry == null)
@@ -101,7 +102,7 @@ function action(command, item, callback) {
         const registryItem = item.pluginName != null ? registry.systems[item.systemId].plugins[item.authorName][item.pluginName] : registry.systems[item.systemId];
         progressElt.textContent = "...";
         const process = serverProcessById[id] = forkServerProcess_1.default([command, id, "--force", `--download-url=${registryItem.downloadURL}`]);
-        process.stdout.on("data", () => { });
+        process.stdout.on("data", () => {});
         updateUI();
         process.on("message", (event) => {
             if (event.type === "error") {
@@ -128,8 +129,7 @@ function action(command, item, callback) {
                             }
                         }
                     }
-                }
-                else {
+                } else {
                     registryItem.localVersion = registryItem.version;
                 }
             }
@@ -140,6 +140,7 @@ function action(command, item, callback) {
     });
 }
 exports.action = action;
+
 function updateAll(callback) {
     getRegistry((registry) => {
         if (registry == null)
@@ -165,11 +166,14 @@ function updateAll(callback) {
                     }, pluginsCb);
                 }
             ], cb);
-        }, () => { if (callback != null)
-            callback(); });
+        }, () => {
+            if (callback != null)
+                callback();
+        });
     });
 }
 exports.updateAll = updateAll;
+
 function updateUI() {
     if (registryServerProcess != null) {
         refreshButton.disabled = true;
@@ -195,11 +199,11 @@ function updateUI() {
         installedElt.textContent = registryItem.isLocalDev ? "(dev)" : (registryItem.localVersion == null ? i18n.t("common:none") : registryItem.localVersion);
         latestElt.textContent = registryItem.version;
         // TODO: Update system details (description, ...)
-    }
-    else {
+    } else {
         detailsElt.hidden = true;
     }
 }
+
 function installOrUninstallClick() {
     const id = treeView.selectedNodes.length === 1 ? treeView.selectedNodes[0].dataset["id"] : null;
     if (id == null || serverProcessById[id] != null)
@@ -209,6 +213,7 @@ function installOrUninstallClick() {
     const registryItem = pluginName != null ? registry.systems[systemId].plugins[authorName][pluginName] : registry.systems[systemId];
     action(registryItem.localVersion == null ? "install" : "uninstall", { systemId, authorName, pluginName });
 }
+
 function onUpdateClick() {
     const id = treeView.selectedNodes.length === 1 ? treeView.selectedNodes[0].dataset["id"] : null;
     if (id == null || serverProcessById[id] != null)
@@ -217,6 +222,7 @@ function onUpdateClick() {
     const [authorName, pluginName] = pluginPath != null ? pluginPath.split("/") : [null, null];
     action("update", { systemId, authorName, pluginName });
 }
+
 function onReleaseNotesClick() {
     const id = treeView.selectedNodes.length === 1 ? treeView.selectedNodes[0].dataset["id"] : null;
     if (id == null)
