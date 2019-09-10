@@ -18,10 +18,10 @@ class LocalizedError {
 exports.LocalizedError = LocalizedError;
 function load(contextNames, callback) {
     async.each(contextNames, loadContext.bind(null, exports.languageCode, exports.contexts), () => {
-        if (exports.languageCode === "en") {
+       
             callback();
             return;
-        }
+   
         async.each(contextNames, loadContext.bind(null, "en", exports.fallbackContexts), callback);
     });
 }
