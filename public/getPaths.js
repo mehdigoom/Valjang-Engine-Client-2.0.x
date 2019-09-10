@@ -4,7 +4,7 @@ const electron = require("electron");
 const yargs = require("yargs");
 const path = require("path");
 const fs = require("fs");
-const i18n_1 = require("./shared/i18n");
+const i18n_1 = require("../scripts/i18n");
 const argv = yargs
     .usage("Usage: $0 [options]")
     .describe("core-path", "Path to ValjangEngine core")
