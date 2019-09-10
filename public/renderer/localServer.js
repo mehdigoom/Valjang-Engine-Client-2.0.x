@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const forkServerProcess_1 = require("./forkServerProcess");
 const settings = require("./settings");
-const i18n = require(".i18n");
+const i18n = require("../shared/i18n");
 const openServerSettings_1 = require("./tabs/openServerSettings");
 const serverSettings = require("./serverSettings");
 const log_1 = require("./serverSettings/log");

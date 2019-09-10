@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const simple_dialogs_1 = require("simple-dialogs");
-const i18n = require("i18n");;
+const i18n = require("../../shared/i18n");;
 class AddOrEditServerDialog extends simple_dialogs_1.BaseDialog {
     constructor(headerLabel, options, callback) {
         super(callback);
@@ -88,8 +88,10 @@ class AddOrEditServerDialog extends simple_dialogs_1.BaseDialog {
         cancelButtonElt.type = "button";
         cancelButtonElt.textContent = i18n.t("common:actions.cancel");
         cancelButtonElt.className = "cancel-button";
-        cancelButtonElt.addEventListener("click", (event) => { event.preventDefault();
-            this.cancel(); });
+        cancelButtonElt.addEventListener("click", (event) => {
+            event.preventDefault();
+            this.cancel();
+        });
         this.validateButtonElt = document.createElement("button");
         this.validateButtonElt.textContent = options.validationLabel;
         this.validateButtonElt.className = "validate-button";

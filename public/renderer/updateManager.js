@@ -9,7 +9,7 @@ const mkdirp = require("mkdirp");
 const forkServerProcess_1 = require("./forkServerProcess");
 const settings = require("./settings");
 const systemServerSettings = require("./serverSettings/systems");
-const i18n = require(".i18n");
+const i18n = require("../shared/i18n");
 const splashScreen = require("./splashScreen");
 const fetch_1 = require("../shared/fetch");
 /* tslint:disable */

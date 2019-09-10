@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs = require("fs");
 const electron = require("electron");
 const settings = require("../settings");
-const i18n = require("i18n");
+const i18n = require("../../shared/i18n");
 const systems = require("./systems");
 require("./log");
 const settingsElt = document.querySelector(".server-settings");
