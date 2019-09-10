@@ -41,7 +41,7 @@ function load(callback) {
         exports.recentProjects = [];
         if (dataJSON == null) {
             // Setup defaults
-            const myServerEntry = { id: "0", hostname: "15.188.48.149", port: "4201", label: i18n.t("Server Public"), httpUsername: "", httpPassword: "" };
+            const myServerEntry = { id: "0", hostname: "15.188.48.149", port: "4201", label: "Server Public", httpUsername: "", httpPassword: "" };
             exports.favoriteServers = [myServerEntry];
             exports.favoriteServersById[myServerEntry.id] = myServerEntry;
             exports.recentProjects = [];

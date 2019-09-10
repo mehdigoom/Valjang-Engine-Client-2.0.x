@@ -2,7 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const async = require("async");
 const fs = require("fs");
-exports.languageIds = fs.readdirSync(`${__dirname}/../locales`);
+const path = require('path');
+// exports.languageIds = fs.readdirSync(`${__dirname}\..\..\locales`);
+exports.languageIds = fs.readdirSync(path.join(__dirname, '/../public/locales/'));
+
+
 function setLanguageCode(code) {
     exports.languageCode = code;
 }
@@ -16,6 +20,7 @@ class LocalizedError {
     }
 }
 exports.LocalizedError = LocalizedError;
+
 function load(contextNames, callback) {
     async.each(contextNames, loadContext.bind(null, exports.languageCode, exports.contexts), () => {
         if (exports.languageCode === "en") {
@@ -26,6 +31,7 @@ function load(contextNames, callback) {
     });
 }
 exports.load = load;
+
 function t(key, variables) {
     let result = genericT(exports.contexts, key, variables);
     if (result == null)
@@ -33,6 +39,7 @@ function t(key, variables) {
     return result != null ? result : key;
 }
 exports.t = t;
+
 function getLocalizedFilename(filename) {
     if (exports.languageCode === "en")
         return filename;
@@ -40,6 +47,7 @@ function getLocalizedFilename(filename) {
     return `${basename}.${exports.languageCode}.${extension}`;
 }
 exports.getLocalizedFilename = getLocalizedFilename;
+
 function loadContext(languageCode, contexts, contextName, callback) {
     const filePath = `${__dirname}/../locales/${languageCode}/${contextName}.json`;
     fs.readFile(filePath, { encoding: "utf8" }, (err, text) => {
@@ -51,6 +59,7 @@ function loadContext(languageCode, contexts, contextName, callback) {
         callback();
     });
 }
+
 function genericT(contexts, key, variables) {
     const [contextName, keys] = key.split(":");
     const keyParts = keys.split(".");
@@ -67,6 +76,7 @@ function genericT(contexts, key, variables) {
     else
         return key;
 }
+
 function insertVariables(text, variables) {
     let index = 0;
     do {
