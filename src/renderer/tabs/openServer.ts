@@ -1,10 +1,10 @@
 import * as fs from "fs";
 import * as electron from "electron";
 
-import fetch from "../../shared/fetch";
-import * as i18n from "../../shared/i18n";
+import fetch from "../../../public/shared/fetch";
+import * as i18n from "../../../public/shared/i18n";
 
-import { tabStrip, panesElt, clearActiveTab } from "./index";
+import { tabStrip, panesElt, clearActiveTab } from "../../../public/renderer/tabs/index";
 
 const { ValjangEngine: { appApiVersion: appApiVersion } } = JSON.parse(fs.readFileSync(`${__dirname}/../../package.json`, { encoding: "utf8" }));
 
