@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const chat = require("../chat");
 const dialogs = require("simple-dialogs");
-const i18n = require("../../shared");
+const i18n = require("../../../scripts/i18n");
 const settings = require("../settings");
 const container = document.querySelector("body > .sidebar .me");
 const nameElt = container.querySelector(".name");

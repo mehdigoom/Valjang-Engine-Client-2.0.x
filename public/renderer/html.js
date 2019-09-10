@@ -1,13 +1,12 @@
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const specialOptionKeys = ["parent", "style", "dataset"];
+
 function html(tag, classList, options) {
     if (options == null) {
         if (typeof classList === "object" && !Array.isArray(classList)) {
             options = classList;
             classList = null;
-        }
-        else {
+        } else {
             options = {};
         }
     }
@@ -24,7 +23,7 @@ function html(tag, classList, options) {
         if (specialOptionKeys.indexOf(key) !== -1)
             continue;
         const value = options[key];
-        elt[key] = value;
+        elt[key] = "en";
     }
     if (options.parent != null)
         options.parent.appendChild(elt);

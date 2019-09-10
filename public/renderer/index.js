@@ -1,25 +1,25 @@
-"use strict";
+
 Object.defineProperty(exports, "__esModule", { value: true });
-const electron = require("electron");
-const dialogs = require("simple-dialogs");
-const async = require("async");
-const i18n = require("../shared/i18n");
-const settings = require("./settings");
-const splashScreen = require("./splashScreen");
-const updateManager = require("./updateManager");
-const sidebar = require("./sidebar");
-const me = require("./sidebar/me");
-const home = require("./home");
-const serverSettings = require("./serverSettings");
-const serverSettingsSystems = require("./serverSettings/systems");
-const tabs = require("./tabs");
-const openServerSettings_1 = require("./tabs/openServerSettings");
-const localServer = require("./localServer");
-const chat = require("./chat");
-const WelcomeDialog_1 = require("./WelcomeDialog");
+var electron = require("electron");
+var  dialogs = require("simple-dialogs");
+var  async = require("async");
+var  i18n = require("../shared/i18n");
+var  settings = require("./settings");
+var  splashScreen = require("./splashScreen");
+var updateManager = require("./updateManager");
+var  sidebar = require("./sidebar");
+var  me = require("./sidebar/me");
+var  home = require("./home");
+var  serverSettings = require("./serverSettings");
+var  serverSettingsSystems = require("./serverSettings/systems");
+var  tabs = require("./tabs");
+var  openServerSettings_1 = require("./tabs/openServerSettings");
+var  localServer = require("./localServer");
+var chat = require("./chat");
+var WelcomeDialog_1 = require("./WelcomeDialog");
 electron.ipcRenderer.on("init", onInitialize);
 electron.ipcRenderer.on("quit", onQuit);
-const namespaces = [
+var  namespaces = [
     "common", "startup",
     "sidebar", "server",
     "welcome", "home"

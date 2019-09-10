@@ -47,7 +47,7 @@ function checkAppUpdate(callback) {
         };
         new dialogs.ConfirmDialog(label, options, (shouldDownload) => {
             if (shouldDownload) {
-                electron.shell.openExternal("https://github.com/ValjangEngine/ValjangEngine-app/releases/latest");
+                electron.shell.openExternal("https://github.com/mehdigoom/ValjangEngine-app/releases/latest");
                 electron.remote.app.quit();
                 return;
             }
