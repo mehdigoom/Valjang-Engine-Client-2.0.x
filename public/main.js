@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const electron = require("electron");
-const i18n = require("i18n");
+const i18n = require("../scripts/i18n");
 const menu = require("./menu");
 const getPaths_1 = require("./getPaths");
 const getLanguageCode_1 = require("./getLanguageCode");
@@ -32,6 +32,7 @@ electron.app.on("before-quit", (event) => {
     if (!isReadyToQuit)
         event.preventDefault();
 });
+
 function startCleanExit() {
     console.log("Exiting cleanly...");
     if (mainWindow != null)
@@ -47,6 +48,7 @@ electron.ipcMain.on("ready-to-quit", (event) => {
     electron.app.quit();
 });
 electron.ipcMain.on("show-main-window", () => { restoreMainWindow(); });
+
 function onAppReady() {
     menu.setup(electron.app);
     getPaths_1.default((dataPathErr, pathToCore, pathToUserData) => {
@@ -101,16 +103,20 @@ function setupTrayOrDock() {
         trayIcon.setToolTip("ValjangEngine");
         trayIcon.setContextMenu(trayMenu);
         trayIcon.on("double-click", () => { restoreMainWindow(); });
-    }
-    else {
+    } else {
         electron.app.dock.setMenu(trayMenu);
     }
 }
+
 function setupMainWindow() {
     mainWindow = new electron.BrowserWindow({
-        width: 1000, height: 600, icon: `${__dirname}/ValjangEngine.ico`,
-        minWidth: 800, minHeight: 480,
-        useContentSize: true, autoHideMenuBar: true,
+        width: 1000,
+        height: 600,
+        icon: `${__dirname}/ValjangEngine.ico`,
+        minWidth: 800,
+        minHeight: 480,
+        useContentSize: true,
+        autoHideMenuBar: true,
         show: false
     });
     mainWindow.loadURL(`file://${__dirname}/renderer/${i18n.getLocalizedFilename("index.html")}`);
@@ -124,6 +130,7 @@ function setupMainWindow() {
     });
     mainWindow.on("close", onCloseMainWindow);
 }
+
 function onCloseMainWindow(event) {
     if (isQuitting)
         return;
@@ -132,10 +139,11 @@ function onCloseMainWindow(event) {
         // NOTE: Minimize before closing to convey the fact
         // that the app is still running in the background
         mainWindow.minimize();
-        setTimeout(() => { if (mainWindow.isMinimized())
-            mainWindow.hide(); }, 200);
-    }
-    else {
+        setTimeout(() => {
+            if (mainWindow.isMinimized())
+                mainWindow.hide();
+        }, 200);
+    } else {
         mainWindow.hide();
     }
     if (process.platform === "win32") {
@@ -145,6 +153,7 @@ function onCloseMainWindow(event) {
         });
     }
 }
+
 function restoreMainWindow() {
     if (isQuitting)
         return;
