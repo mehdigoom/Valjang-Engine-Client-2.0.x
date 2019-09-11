@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const electron = require("electron");
-const i18n = require("../scripts/i18n");
+const i18n = require("./shared/i18n");
 const menu = require("./menu");
 const getPaths_1 = require("./getPaths");
 const getLanguageCode_1 = require("./getLanguageCode");

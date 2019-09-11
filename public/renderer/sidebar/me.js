@@ -21,9 +21,9 @@ function updatePresenceFromSettings() {
 exports.updatePresenceFromSettings = updatePresenceFromSettings;
 nameElt.addEventListener("click", (event) => {
     const options = {
-        title: i18n.t("sidebar:setNickname.title"),
+        title: "sidebar:setNickname.title",
         initialValue: nameElt.textContent,
-        validationLabel: i18n.t("common:actions.update"),
+        validationLabel: "common:actions.update",
         pattern: chat.nicknamePatternString,
         required: true
     };
