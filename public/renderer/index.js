@@ -1,25 +1,24 @@
-
 Object.defineProperty(exports, "__esModule", { value: true });
 var electron = require("electron");
-var  dialogs = require("simple-dialogs");
-var  async = require("async");
-var  i18n = require("../shared/i18n");
-var  settings = require("./settings");
-var  splashScreen = require("./splashScreen");
+var dialogs = require("simple-dialogs");
+var async = require("async");
+var i18n = require("../shared/i18n");
+var settings = require("./settings");
+var splashScreen = require("./splashScreen");
 var updateManager = require("./updateManager");
-var  sidebar = require("./sidebar");
-var  me = require("./sidebar/me");
-var  home = require("./home");
-var  serverSettings = require("./serverSettings");
-var  serverSettingsSystems = require("./serverSettings/systems");
-var  tabs = require("./tabs");
-var  openServerSettings_1 = require("./tabs/openServerSettings");
-var  localServer = require("./localServer");
+var sidebar = require("./sidebar");
+var me = require("./sidebar/me");
+var home = require("./home");
+var serverSettings = require("./serverSettings");
+var serverSettingsSystems = require("./serverSettings/systems");
+var tabs = require("./tabs");
+var openServerSettings_1 = require("./tabs/openServerSettings");
+var localServer = require("./localServer");
 var chat = require("./chat");
 var WelcomeDialog_1 = require("./WelcomeDialog");
 electron.ipcRenderer.on("init", onInitialize);
 electron.ipcRenderer.on("quit", onQuit);
-var  namespaces = [
+var namespaces = [
     "common", "startup",
     "sidebar", "server",
     "welcome", "home"
@@ -52,7 +51,7 @@ function onSettingsLoaded(err) {
                 electron.remote.app.quit();
                 return;
             }
-            updateManager.checkForUpdates(start);
+            //updateManager.checkForUpdates(start);
         });
         return;
     }

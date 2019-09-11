@@ -1,9 +1,9 @@
 import * as electron from "electron";
-import * as i18n from "./shared/i18n";
-import * as menu from "./menu";
+import * as i18n from "../public/shared/i18n";
+import * as menu from "../public/menu";
 import getPaths from "./getPaths";
-import getLanguageCode from "./getLanguageCode";
-import * as SupAppIPC from "./ipc";
+import getLanguageCode from "../public/getLanguageCode";
+import * as SupAppIPC from "../public/ipc";
 
 let corePath: string;
 let userDataPath: string;
