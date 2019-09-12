@@ -7,7 +7,7 @@ import * as mkdirp from "mkdirp";
 import * as dummy_https from "https";
 
 import forkServerProcess from "../../public/renderer/forkServerProcess";
-import * as settings from "./settings";
+import * as settings from "../../public/renderer/settings";
 
 import * as i18n from "../../public/shared/i18n";
 import * as splashScreen from "./splashScreen";

@@ -4,12 +4,12 @@ const fs = require("fs");
 const execSync = require("child_process").execSync;
 const path = require("path");
 
-const rootPackage = JSON.parse(fs.readFileSync(`${__dirname}/package.json`, { encoding: "utf8" }));
-const publicPackage = JSON.parse(fs.readFileSync(`${__dirname}/public/package.json`, { encoding: "utf8" }));
+const rootPackage = JSON.parse(fs.readFileSync(path.join(__dirname, `/../package.json`), { encoding: "utf8" }));
+const publicPackage = JSON.parse(fs.readFileSync(path.join(__dirname, `/../package.json`), { encoding: "utf8" }));
 publicPackage.version = rootPackage.version;
 publicPackage.dependencies = rootPackage.dependencies;
 
-fs.writeFileSync(`${__dirname}/../public/package.json`, JSON.stringify(publicPackage, null, 2) + "\n");
+fs.writeFileSync(path.join(__dirname, `/../package.json`), JSON.stringify(publicPackage, null, 2) + "\n");
 
 execSync("npm install --production", { cwd: `${__dirname}/../public`, stdio: "inherit" });
 
