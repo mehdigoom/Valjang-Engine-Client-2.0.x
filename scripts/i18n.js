@@ -49,7 +49,8 @@ function getLocalizedFilename(filename) {
 exports.getLocalizedFilename = getLocalizedFilename;
 
 function loadContext(languageCode, contexts, contextName, callback) {
-    const filePath = `${__dirname}/../locales/${languageCode}/${contextName}.json`;
+    const filePath = path.join(__dirname, '/../locales/${languageCode}/${contextName}.json');
+    console.log(filePath)
     fs.readFile(filePath, { encoding: "utf8" }, (err, text) => {
         if (err != null) {
             callback();

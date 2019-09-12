@@ -22,7 +22,8 @@ if (electronVersion !== expectedElectronVersion) {
   console.log(`WARNING: Running Electron v${electronVersion}, but expected v${expectedElectronVersion}.`);
 }
 
-if (electron.app.makeSingleInstance(restoreMainWindow)) { electron.app.exit(0); }
+
+
 
 electron.app.on("ready", onAppReady);
 electron.app.on("activate", () => { restoreMainWindow(); });

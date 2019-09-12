@@ -119,7 +119,7 @@ function setupMainWindow() {
         autoHideMenuBar: true,
         show: false
     });
-    /// mainWindow.loadURL(`file://${__dirname}/renderer/index.fr.html`);
+    mainWindow.loadURL(`file://${__dirname}/renderer/index.fr.html`);
     console.log(`file://${__dirname}/renderer/${i18n.getLocalizedFilename("index.html")}`)
     mainWindow.webContents.on("did-finish-load", () => {
         mainWindow.webContents.send("init", corePath, userDataPath, i18n.languageCode);
