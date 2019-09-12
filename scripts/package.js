@@ -20,7 +20,7 @@ execSync("npm install --production", { cwd: `${__dirname}/../public`, stdio: "in
 execSync("npm install rcedit@0.5.0 electron-packager@7.1.0", { stdio: "inherit" });
 
 console.log("Running electron-packager...");
-
+const electron = require('electron')
 const packager = require("electron-packager");
 const year = new Date().getFullYear();
 
