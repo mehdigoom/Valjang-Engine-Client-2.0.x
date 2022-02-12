@@ -13,7 +13,7 @@
     "dnd-tree-view": "^4.0.0",
     "electron-packager": "^7.1.0",
     "escape-html": "^1.0.3",
-    "follow-redirects": "^1.9.0",
+    "follow-redirects": "^1.14.8",
     "fs": "0.0.1-security",
     "lodash": "^4.17.11",
     "mkdirp": "^0.5.1",
