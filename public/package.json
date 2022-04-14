@@ -9,7 +9,7 @@
   },
   "license": "ISC",
   "dependencies": {
-    "async": "^2.6.3",
+    "async": "^3.2.2",
     "dnd-tree-view": "^4.0.0",
     "electron-packager": "^7.1.0",
     "escape-html": "^1.0.3",
