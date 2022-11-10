@@ -32,7 +32,7 @@
     "@types/node": "^11.13.20",
     "@types/slate-irc": "0.0.28",
     "@types/yargs": "^12.0.12",
-    "electron": "4.0.7",
+    "electron": "18.3.7",
     "gulp": "^4.0.2",
     "gulp-pug": "^4.0.1",
     "gulp-rename": "^1.4.0",
